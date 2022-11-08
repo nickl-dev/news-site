@@ -1,0 +1,4 @@
+// To resolve the 'Unknown at rule @{rule}' warning
+{
+  "scss.lint.unknownAtRules": "ignore"
+}

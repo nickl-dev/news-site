@@ -1,8 +1,18 @@
+# Next-TypeScript-Blog
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+---
 
 ## Getting Started
 
-First, run the development server:
+**First**, make sure you install the dependencies:
+
+```bash
+npm ci
+```
+
+**Second**, run the development server:
 
 ```bash
 npm run dev
@@ -32,3 +42,81 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+---
+
+## Telemetry
+
+**What is Telemetry?** <br/>
+Telemetry is the practice of gathering completely anonymous telemetry data about general usage.
+
+By default, Next.js applications come with telemetry **enabled**. <br/>
+For this repository, telemetry has been **disabled**.
+
+However, should you find yourself needing to enable, disable, or check the status of telemetry,
+you can use the respective commands:
+
+**Enable telemetry:**
+
+```bash
+npx next telemetry enable
+# Or
+yarn next telemetry enable
+```
+
+**Disable telemetry:**
+
+```bash
+npx next telemetry disable
+# Or
+yarn next telemetry disable
+```
+
+**Check telemetry status:**
+
+```bash
+npx next telemetry status
+# Or
+yarn next telemetry status
+```
+
+See [Next.js telemetry documentation](https://nextjs.org/telemetry) for more details.
+
+---
+
+## Configuring ESLint and Prettier
+
+First, let's remind ourselves of what ESLint and Prettier are:
+
+**What is ESLint?** <br/>
+ESLint is a is a tool that alalyzes your code for style and coding errors that can lead to bugs, and offers suggestions on how to fix them.
+
+**What is Prettier?** <br/>
+Prettier is an _opinionated_ code formatter. Prettier will completely rewrite your code according to a set of rules. It will not change the _content_ of the code but it will change how the code is _structured_.
+
+By default, Next.js applications come with it's own configuration of ESLint. However, with this project, we're overriding Next.js's default ESLint configuration with **Airbnb**'s configuration. We're combining ESLint and Prettier together with Airbnb's guide/rules to make sure we get ESLint warnings and errors and have our code nicely-formatted according to how the team at Airbnb likes to do it.
+
+Since ESLint and Prettier are already configured at the project/repository level (with dev dependencies, `.eslintrc.json`, and `prettier.rc.json`), you should only have to do the following:
+
+**1.** Install the [VSCode ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+<br/>
+**2.** Install the [VSCode Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode). <br/>
+**3.** Copy and paste the following settings in to your VSCode `settings.json` file:
+
+```
+"editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.trailingComma": "none",
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+```
+
+See [the guide that was used](https://www.sandromaglione.com/techblog/create-nextjs-project-with-typescript-eslint-prettier-tailwindcss) to install and configure ESLint and Prettier with Airbnb's guide/rules.
+
+---
+
+## Add on to this readme 📖
