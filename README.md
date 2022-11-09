@@ -1,6 +1,20 @@
-# Next-TypeScript-Blog
+# News Site
+
+<a href="https://www.nicklal.dev">
+  <img 
+    src="https://media.tenor.com/YNp5t_lLA2oAAAAC/breaking-news-news.gif"
+    alt="News report GIF that says 'BREAKING NEWS'"
+    width="300"
+    loading="lazy"
+  />
+</a>
+
+<br/>
+<br/>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+Developed with `Next, TypeScript, GraphQL, Tailwind, SASS`
 
 ---
 
@@ -116,7 +130,3 @@ Since ESLint and Prettier are already configured at the project/repository level
 ```
 
 See [the guide that was used](https://www.sandromaglione.com/techblog/create-nextjs-project-with-typescript-eslint-prettier-tailwindcss) to install and configure ESLint and Prettier with Airbnb's guide/rules.
-
----
-
-## Add on to this readme 📖
