@@ -1,8 +1,12 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useState } from 'react';
 import styles from '../styles/Home.module.scss';
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState('apple');
+  const [results, setResults] = useState([]);
+
   return (
     <div className={styles.container}>
       <Head>
