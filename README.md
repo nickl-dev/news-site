@@ -14,7 +14,7 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Developed with `Next, TypeScript, GraphQL, Tailwind, SASS`
+Developed with `Next, TypeScript, News API, Tailwind, SASS`
 
 ---
 
