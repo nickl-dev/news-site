@@ -1,31 +1,38 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.scss';
 
-export async function getServerSideProps() {
+type Article = {
+  source: {
+    id: string | number | null;
+    name: string | null;
+  };
+  author: string | null;
+  title: string | null;
+  description: string | null;
+  url: string | null;
+  urlToImage: string | null;
+  publishedAt: string | null;
+  content: string | string[] | null;
+};
+
+export async function getStaticProps() {
   const response = await fetch(
     `${process.env.API_URL}top-headlines?country=us&apiKey=${process.env.API_KEY}`
   );
 
   const { articles } = await response.json();
 
-  console.log(articles);
-
   return {
     props: {
-      timestamp: Date.now(),
       articles,
     },
   };
 }
 
-export default function Home({ timestamp, articles }) {
-  const [searchQuery, setSearchQuery] = useState('top-headlines');
-  const [results, setResults] = useState([]);
-
+export default function Home(props: { articles: Article[] }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -55,12 +62,12 @@ export default function Home({ timestamp, articles }) {
       <main className={styles.main}>
         <h1 className={styles.title}>News Site</h1>
 
-        <span className="font-semibold">{timestamp}</span>
+        <span className="font-semibold">{date}</span>
 
         <div className={styles.grid}>
-          {articles.map((article: any, index: number) => {
+          {props.articles.map((article: Article, index: number) => {
             return (
-              <Link key={index} href="/article/1">
+              <Link key={index} href={`/article/${index + 1}`}>
                 <article key={index} className={styles.article}>
                   <span className="block">{article.title}</span>
                   <span className="block">{article.publishedAt}</span>
