@@ -1,38 +1,16 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.scss';
 
-type Article = {
-  source: {
-    id: string | number | null;
-    name: string | null;
-  };
-  author: string | null;
-  title: string | null;
-  description: string | null;
-  url: string | null;
-  urlToImage: string | null;
-  publishedAt: string | null;
-  content: string | string[] | null;
-};
+export const getStaticProps = async () => {
+  const response = await fetch(`${process.env.API_BASE_URL}top?api_token=${process.env.API_TOKEN}&locale=co`);
+  const { data } = await response.json();
 
-export async function getStaticProps() {
-  const response = await fetch(
-    `${process.env.API_URL}top-headlines?country=us&apiKey=${process.env.API_KEY}`
-  );
-
-  const { articles } = await response.json();
-
-  return {
-    props: {
-      articles,
-    },
-  };
+  return { props: { articles: data } }
 }
 
-export default function Home(props: { articles: Article[] }) {
+const Articles = ({ articles }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -41,7 +19,8 @@ export default function Home(props: { articles: Article[] }) {
           name="description"
           content={process.env.NEXT_PUBLIC_SITE_DESCRIPTION}
         />
-        <link rel="icon" href="/favicon.png" />
+        {/* <link rel="icon" href="/favicon.png" /> */}
+        <link rel="icon" href="https://www.countryflags.com/wp-content/uploads/colombia-flag-png-xl.png" />
         <meta property="og:type" content="Website" />
         <meta
           property="og:title"
@@ -60,17 +39,15 @@ export default function Home(props: { articles: Article[] }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>News Site</h1>
-
-        <span className="font-semibold">{date}</span>
+        <h1 className={styles.title}>Noticias Colombianas</h1>
 
         <div className={styles.grid}>
-          {props.articles.map((article: Article, index: number) => {
+          {articles.map((article) => {
             return (
-              <Link key={index} href={`/article/${index + 1}`}>
-                <article key={index} className={styles.article}>
-                  <span className="block">{article.title}</span>
-                  <span className="block">{article.publishedAt}</span>
+              <Link key={article.uuid} href={`/article/${article.uuid}`}>
+                <article key={article.uuid} className={styles.article}>
+                  <h2 className="block">{article.title}</h2>
+                  <span className="block">{article.snippet || article.description}</span>
                 </article>
               </Link>
             );
@@ -98,3 +75,5 @@ export default function Home(props: { articles: Article[] }) {
     </div>
   );
 }
+
+export default Articles;

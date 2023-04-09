@@ -14,7 +14,7 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Developed with `Next, TypeScript, News API, Tailwind, SASS`
+Developed with `Next, The News API, Tailwind, SCSS`
 
 ---
 
@@ -98,35 +98,32 @@ See [Next.js telemetry documentation](https://nextjs.org/telemetry) for more det
 
 ---
 
-## Configuring ESLint and Prettier
-
+## Configuring ESLint
 First, let's remind ourselves of what ESLint and Prettier are:
 
 **What is ESLint?** <br/>
 ESLint is a is a tool that alalyzes your code for style and coding errors that can lead to bugs, and offers suggestions on how to fix them.
 
-**What is Prettier?** <br/>
-Prettier is an _opinionated_ code formatter. Prettier will completely rewrite your code according to a set of rules. It will not change the _content_ of the code but it will change how the code is _structured_.
-
-By default, Next.js applications come with it's own configuration of ESLint. However, with this project, we're overriding Next.js's default ESLint configuration with **Airbnb**'s configuration. We're combining ESLint and Prettier together with Airbnb's guide/rules to make sure we get ESLint warnings and errors and have our code nicely-formatted according to how the team at Airbnb likes to do it.
-
-Since ESLint and Prettier are already configured at the project/repository level (with dev dependencies, `.eslintrc.json`, and `prettier.rc.json`), you should only have to do the following:
+Since ESLint is already configured at the project/repository level (with dev dependencies, `.eslintrc.json`), you should only have to do the following:
 
 **1.** Install the [VSCode ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 <br/>
-**2.** Install the [VSCode Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode). <br/>
-**3.** Copy and paste the following settings in to your VSCode `settings.json` file:
+
+**2.** Copy and paste the following settings in to your VSCode `settings.json` file:
 
 ```
-"editor.tabSize": 2,
+{
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": true,
-  "prettier.trailingComma": "none",
-  "prettier.singleQuote": true,
-  "prettier.jsxSingleQuote": true,
+  // ESLint
+  "eslint.format.enable": true,
+  "eslint.validate": ["javascript", "javascriptreact", "vue"]
+}
+
 ```
 
-See [the guide that was used](https://www.sandromaglione.com/techblog/create-nextjs-project-with-typescript-eslint-prettier-tailwindcss) to install and configure ESLint and Prettier with Airbnb's guide/rules.
+See [the guide that was used](https://www.sandromaglione.com/techblog/create-nextjs-project-with-typescript-eslint-prettier-tailwindcss) to install and configure ESLint.
