@@ -1,9 +1,9 @@
-# News Site
+# Noticias Colombianas
 
 <a href="https://www.nicklal.dev">
   <img 
-    src="https://media.tenor.com/YNp5t_lLA2oAAAAC/breaking-news-news.gif"
-    alt="News report GIF that says 'BREAKING NEWS'"
+    src="https://1.bp.blogspot.com/-Jhk-wmlfDhw/YDP6Ig10FqI/AAAAAAAA388/0ewN64BTvRUQ1BWeN0aeCqSwcGCDdlAqwCLcBGAsYHQ/s0/Flag_of_Colombia.gif"
+    alt="A waving colombian flag"
     width="300"
     loading="lazy"
   />
