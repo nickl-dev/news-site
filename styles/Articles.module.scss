@@ -46,8 +46,7 @@
 }
 
 .title {
-  font-size: 4rem;
-  @apply font-bold;
+  @apply font-bold text-3xl;
 }
 
 .title,
@@ -71,7 +70,7 @@
 }
 
 .grid {
-  @apply flex justify-center flex-wrap gap-10;
+  @apply flex justify-center flex-wrap gap-10 mt-10;
 }
 
 .card {

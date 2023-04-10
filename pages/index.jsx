@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../styles/Home.module.scss';
+import styles from '../styles/Articles.module.scss';
 
 export const getStaticProps = async () => {
   const response = await fetch(`${process.env.API_BASE_URL}top?api_token=${process.env.API_TOKEN}&locale=co`);
@@ -13,13 +13,13 @@ export const getStaticProps = async () => {
 const Articles = ({ articles }) => {
   return (
     <div className={styles.container}>
+      {/* Meta data */}
       <Head>
         <title>{process.env.NEXT_PUBLIC_SITE_TITLE}</title>
         <meta
           name="description"
           content={process.env.NEXT_PUBLIC_SITE_DESCRIPTION}
         />
-        {/* <link rel="icon" href="/favicon.png" /> */}
         <link rel="icon" href="https://www.countryflags.com/wp-content/uploads/colombia-flag-png-xl.png" />
         <meta property="og:type" content="Website" />
         <meta
@@ -38,15 +38,16 @@ const Articles = ({ articles }) => {
         />
       </Head>
 
+      {/* News articles */}
       <main className={styles.main}>
-        <h1 className={styles.title}>Noticias Colombianas</h1>
+        <h1 className={styles.title}>{process.env.NEXT_PUBLIC_SITE_TITLE}</h1>
 
         <div className={styles.grid}>
           {articles.map((article) => {
             return (
               <Link key={article.uuid} href={`/article/${article.uuid}`}>
                 <article key={article.uuid} className={styles.article}>
-                  <h2 className="block">{article.title}</h2>
+                  <h2 className="text-lg">{article.title}</h2>
                   <span className="block">{article.snippet || article.description}</span>
                 </article>
               </Link>
@@ -61,7 +62,7 @@ const Articles = ({ articles }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Por
           <span className={styles.logo}>
             <Image
               src="/assets/images/vercel.svg"
