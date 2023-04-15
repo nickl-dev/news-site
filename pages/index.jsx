@@ -2,7 +2,9 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Articles.module.scss';
-import { server } from '../next.config';
+
+const isDevelopmentEnvironment = process.env.NODE_ENV !== 'production'
+const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : process.env.NEXT_PUBLIC_SITE_URL
 
 export const getStaticProps = async () => {
   const response = await fetch(`${server}api/articles`);

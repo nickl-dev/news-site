@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { server } from "../../../next.config";
+const isDevelopmentEnvironment = process.env.NODE_ENV !== 'production'
+const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : process.env.NEXT_PUBLIC_SITE_URL
 
 /**
  * Handler

@@ -1,6 +1,7 @@
 import Head from 'next/head';
-import { server } from '../../next.config';
-// import Image from 'next/image';
+
+const isDevelopmentEnvironment = process.env.NODE_ENV !== 'production'
+const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : process.env.NEXT_PUBLIC_SITE_URL
 
 export const getStaticPaths = async () => {
   const response = await fetch(`${server}api/articles`);
