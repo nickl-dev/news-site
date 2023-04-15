@@ -1,8 +1,9 @@
 import Head from 'next/head';
+import { server } from '../../next.config';
 // import Image from 'next/image';
 
 export const getStaticPaths = async () => {
-  const response = await fetch('http://localhost:3000/api/articles');
+  const response = await fetch(`${server}api/articles`);
   const data = await response.json()
   
   const paths = data.map(article => {
@@ -19,8 +20,10 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const { id } = context.params
-  const response = await fetch(`http://localhost:3000/api/articles/${id}`);
+  const response = await fetch(`${server}api/articles/${id}`);
   const article = await response.json()
+
+  console.log(process.env.NEXT_PUBLIC_SITE_URL)
 
   return { props: { article } }
 
@@ -33,38 +36,14 @@ const Article = ({ article }) => {
       {/* Meta Data */}
       <Head>
         <title>{article.title}</title>
-        <meta
-          name="description"
-          content={article.description}
-        />
-        <link 
-          rel="icon" 
-          href="https://www.countryflags.com/wp-content/uploads/colombia-flag-png-xl.png" 
-        />
-        <meta 
-          property="og:type" 
-          content="Website" 
-        />
-        <meta
-          property="og:title"
-          content={article.title}
-        />
-        <meta
-          property="og:description"
-          content={article.description}
-        />
-        <meta 
-          property="og:image" 
-          content="https://www.countryflags.com/wp-content/uploads/colombia-flag-png-xl.png" 
-        />
-        <meta 
-          property="og:url" 
-          content={process.env.NEXT_PUBLIC_SITE_URL} 
-        />
-        <meta
-          property="og:site_name"
-          content={process.env.NEXT_PUBLIC_SITE_TITLE}
-        />
+        <meta name="description" content={article.description} />
+        <link rel="icon" href="/favicon.png" />
+        <meta property="og:type" content="Website" />
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.description} />
+        <meta property="og:image" content={article.image} />
+        <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
+        <meta property="og:site_name" content={process.env.NEXT_PUBLIC_SITE_TITLE} />
       </Head>
 
       {/* Article information */}

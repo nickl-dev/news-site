@@ -1,4 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { server } from "../../../next.config";
 
 /**
  * Handler
@@ -9,7 +10,7 @@
  */
 export default async function handler(req, res) {
   const { id } = req.query
-  const response = await fetch(`http://localhost:3000/api/articles`);
+  const response = await fetch(`${server}api/articles`);
   const data = await response.json();
 
   const article = data.find(article => String(article.uuid) === id) 

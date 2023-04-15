@@ -2,9 +2,10 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Articles.module.scss';
+import { server } from '../next.config';
 
 export const getStaticProps = async () => {
-  const response = await fetch("http://localhost:3000/api/articles");
+  const response = await fetch(`${server}api/articles`);
   const articles = await response.json();
 
   return { props: { articles } }
@@ -16,26 +17,14 @@ const Articles = ({ articles }) => {
       {/* Meta data */}
       <Head>
         <title>{process.env.NEXT_PUBLIC_SITE_TITLE}</title>
-        <meta
-          name="description"
-          content={process.env.NEXT_PUBLIC_SITE_DESCRIPTION}
-        />
+        <meta name="description" content={process.env.NEXT_PUBLIC_SITE_DESCRIPTION} />
         <link rel="icon" href="/favicon.png" />
         <meta property="og:type" content="Website" />
-        <meta
-          property="og:title"
-          content={process.env.NEXT_PUBLIC_SITE_TITLE}
-        />
-        <meta
-          property="og:description"
-          content={process.env.NEXT_PUBLIC_SITE_DESCRIPTION}
-        />
-        <meta property="og:image" content="/assets/images/favicon.png" />
+        <meta property="og:title" content={process.env.NEXT_PUBLIC_SITE_TITLE} />
+        <meta property="og:description" content={process.env.NEXT_PUBLIC_SITE_DESCRIPTION} />
+        <meta property="og:image" content="/favicon.png" />
         <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
-        <meta
-          property="og:site_name"
-          content={process.env.NEXT_PUBLIC_SITE_URL}
-        />
+        <meta property="og:site_name" content={process.env.NEXT_PUBLIC_SITE_URL} />
       </Head>
 
       {/* News articles */}
