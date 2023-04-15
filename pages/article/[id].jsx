@@ -24,10 +24,7 @@ export const getStaticProps = async (context) => {
   const response = await fetch(`${server}api/articles/${id}`);
   const article = await response.json()
 
-  console.log(process.env.NEXT_PUBLIC_SITE_URL)
-
   return { props: { article } }
-
 }
 
 

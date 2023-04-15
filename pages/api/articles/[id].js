@@ -18,6 +18,4 @@ export default async function handler(req, res) {
 
   if (article) res.status(200).send(article)
   else res.status(404).send(`Could not find an article with the specified uuid: ${id}`)
-  
-  res.status(200).send(article)
 }
