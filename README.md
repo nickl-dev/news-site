@@ -1,9 +1,9 @@
-# Noticias Colombianas
+# Simple News
 
 <a href="https://www.nicklal.dev">
   <img 
-    src="https://1.bp.blogspot.com/-Jhk-wmlfDhw/YDP6Ig10FqI/AAAAAAAA388/0ewN64BTvRUQ1BWeN0aeCqSwcGCDdlAqwCLcBGAsYHQ/s0/Flag_of_Colombia.gif"
-    alt="A waving colombian flag"
+    src="https://thumbs.gfycat.com/AlarmingFaintFinwhale-size_restricted.gif"
+    alt="GIF of the text 'News' repeatedly entering and exiting"
     width="300"
     loading="lazy"
   />
@@ -14,7 +14,7 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Developed with `Next, The News API, Tailwind, SCSS`
+Built with `Next, News API, Tailwind CSS and SCSS.`
 
 ---
 
