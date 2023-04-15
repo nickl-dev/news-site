@@ -1,13 +1,13 @@
 import Head from 'next/head';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 export const getStaticPaths = async () => {
-  const response = await fetch(`${process.env.API_BASE_URL}top?api_token=${process.env.API_TOKEN}&locale=co`);
-  const { data } = await response.json()
+  const response = await fetch('http://localhost:3000/api/articles');
+  const data = await response.json()
   
   const paths = data.map(article => {
     return {
-      params: { id: article.uuid } 
+      params: { id: String(article.uuid) } 
     }
   })
 
@@ -19,10 +19,10 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const { id } = context.params
-  const response = await fetch(`${process.env.API_BASE_URL}uuid/${id}?api_token=${process.env.API_TOKEN}`);
-  const data = await response.json()
+  const response = await fetch(`http://localhost:3000/api/articles/${id}`);
+  const article = await response.json()
 
-  return { props: { article: data } }
+  return { props: { article } }
 
 }
 
@@ -70,13 +70,6 @@ const Article = ({ article }) => {
       {/* Article information */}
       <h1>{article.title}</h1>
       <p>{article.description}</p>
-      {
-        article.categories.length < 2 ? 
-          (<span>{article.categories[0]}</span>) 
-          : article.categories.map((category, index) => {
-            return (<span key={index}> {category} |</span>)
-          })
-      }
     </div>
   )
 }

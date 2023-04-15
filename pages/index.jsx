@@ -4,10 +4,10 @@ import Link from 'next/link';
 import styles from '../styles/Articles.module.scss';
 
 export const getStaticProps = async () => {
-  const response = await fetch(`${process.env.API_BASE_URL}top?api_token=${process.env.API_TOKEN}&locale=co`);
-  const { data } = await response.json();
+  const response = await fetch("http://localhost:3000/api/articles");
+  const articles = await response.json();
 
-  return { props: { articles: data } }
+  return { props: { articles } }
 }
 
 const Articles = ({ articles }) => {
@@ -20,7 +20,7 @@ const Articles = ({ articles }) => {
           name="description"
           content={process.env.NEXT_PUBLIC_SITE_DESCRIPTION}
         />
-        <link rel="icon" href="https://www.countryflags.com/wp-content/uploads/colombia-flag-png-xl.png" />
+        <link rel="icon" href="/favicon.png" />
         <meta property="og:type" content="Website" />
         <meta
           property="og:title"
