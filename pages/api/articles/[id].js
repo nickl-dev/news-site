@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 const isDevelopmentEnvironment = process.env.NODE_ENV !== 'production'
-const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : process.env.NEXT_PUBLIC_SITE_URL
+const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : 'https://noticias-colombianas.vercel.app/'
 
 /**
  * Handler
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   const response = await fetch(`${server}api/articles`);
   const data = await response.json();
 
-  const article = data.find(article => String(article.uuid) === id) 
+  const article = data.find(article => String(article.uuid) === id)
 
   if (article) res.status(200).send(article)
   else res.status(404).send(`Could not find an article with the specified uuid: ${id}`)

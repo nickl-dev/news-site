@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from '../styles/Articles.module.scss';
 
 const isDevelopmentEnvironment = process.env.NODE_ENV !== 'production'
-const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : process.env.NEXT_PUBLIC_SITE_URL
+const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : 'https://noticias-colombianas.vercel.app/'
 
 export const getStaticProps = async () => {
   const response = await fetch(`${server}api/articles`);
