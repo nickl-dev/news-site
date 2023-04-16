@@ -31,14 +31,12 @@ const Articles = ({ articles }) => {
 
       {/* News articles */}
       <main className={styles.main}>
-        <h1 className={styles.title}>{process.env.NEXT_PUBLIC_SITE_TITLE}</h1>
-
         <div className={styles.grid}>
           {articles.map((article) => {
             return (
               <Link key={article.uuid} href={`/article/${article.uuid}`}>
                 <article key={article.uuid} className={styles.article}>
-                  <h2 className="text-lg">{article.title}</h2>
+                  <h2 className={styles.title}>{article.title}</h2>
                   <span className="block">{article.snippet || article.description}</span>
                 </article>
               </Link>
@@ -53,7 +51,7 @@ const Articles = ({ articles }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Por
+          By
           <span className={styles.logo}>
             <Image
               src="/assets/images/vercel.svg"
