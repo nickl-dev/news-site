@@ -30,24 +30,26 @@
 
   const Article = ({ article }) => {
     return (
-      <div>
+      <>
         {/* Meta Data */}
         <Head>
           <title>{article.title}</title>
-          <meta name="description" content={article.description} />
-          <link rel="icon" href="/favicon.png" />
-          <meta property="og:type" content="Website" />
-          <meta property="og:title" content={article.title} />
-          <meta property="og:description" content={article.description} />
-          <meta property="og:image" content={article.image} />
-          <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
-          <meta property="og:site_name" content={process.env.NEXT_PUBLIC_SITE_TITLE} />
+          <meta name='description' content={article.description} />
+          <link rel='icon' href='/favicon.png' />
+          <meta property='og:type' content='Website' />
+          <meta property='og:title' content={article.title} />
+          <meta property='og:description' content={article.description} />
+          <meta property='og:image' content={article.image} />
+          <meta property='og:url' content={process.env.NEXT_PUBLIC_SITE_URL} />
+          <meta property='og:site_name' content={process.env.NEXT_PUBLIC_SITE_TITLE} />
         </Head>
 
         {/* Article information */}
-        <h1>{article.title}</h1>
-        <p>{article.description}</p>
-      </div>
+        <main>
+          <h1>{article.title}</h1>
+          <p>{article.description}</p>
+        </main>
+      </>
     )
   }
 

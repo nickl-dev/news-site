@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {  }
-a { 
-  @apply text-inherit no-underline;
+html, body { 
   font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica', 'Neue', 'sans-serif'; 
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica', 'Neue', 'sans-serif';  
 }
+
+a {  @apply text-inherit no-underline; }
 * { @apply m-0 p-0 box-border; }
+
+main { @apply min-h-screen pt-24 px-4; }
 
 @media (prefers-color-scheme: dark) {
   html { color-scheme: dark; }

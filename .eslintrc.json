@@ -19,6 +19,7 @@
     "no-var": "error",
     "no-unused-vars": "error",
     "no-trailing-spaces": "error",
-    "object-curly-spacing": ["error", "always"]
+    "object-curly-spacing": ["error", "always"],
+    "jsx-quotes": ["error", "prefer-single"]
   }
 }
