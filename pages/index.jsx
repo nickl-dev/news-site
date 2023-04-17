@@ -6,7 +6,7 @@ import styles from '../styles/Articles.module.scss';
 const isDevelopmentEnvironment = process.env.NODE_ENV !== 'production'
 const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : 'https://noticias-colombianas.vercel.app/'
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const response = await fetch(`${server}api/articles`);
   const articles = await response.json();
 
