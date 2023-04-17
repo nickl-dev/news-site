@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 const isDevelopmentEnvironment = process.env.NODE_ENV !== 'production'
-const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : 'https://noticias-colombianas.vercel.app/'
+const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : 'https://nickl-dev-simple-news.vercel.app/'
 
 /**
  * Handler

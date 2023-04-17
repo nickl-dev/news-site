@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from '../styles/Articles.module.scss';
 
 const isDevelopmentEnvironment = process.env.NODE_ENV !== 'production'
-const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : 'https://noticias-colombianas.vercel.app/'
+const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : 'https://nickl-dev-simple-news.vercel.app/'
 
 export const getServerSideProps = async () => {
   const response = await fetch(`${server}api/articles`);
