@@ -39,9 +39,15 @@ const Articles = ({ articles }) => {
 
       <main>
         <section>
-          <h1 className='font-georgia font-semibold text-md md:text-lg lg:text-xl'>
-            Today is {date.toLocaleDateString('en-US', { weekday: 'long' })}, {date.toLocaleString('default', { month: 'long' })} {date.getUTCDate()}, {date.getUTCFullYear()}
+          <h1 className='font-extrabold text-md text-2xl text-gray-300'>
+            {date.toLocaleString('default', { month: 'long' })} {date.getUTCDate()}, {date.getUTCFullYear()}
           </h1>
+        </section>
+
+        <section>
+          <h2 className='font-extrabold text-md text-2xl text-red'>
+            Top Stories
+          </h2>
         </section>
 
         {/* News articles */}
@@ -50,15 +56,17 @@ const Articles = ({ articles }) => {
             return (
               <Link key={article.uuid} href={`/article/${article.uuid}`}>
                 <article key={article.uuid} className={styles.article}>
-                  <h2 className={styles.title}>{article.title}</h2>
-                  <p className='text-center text-sm	mt-1'>{article.description}</p>
-                  <Image
-                    className='mt-2 mx-auto rounded'
-                    alt={article.title}
-                    src={article.urlToImage || process.env.NEXT_PUBLIC_ARTICLE_PLACEHOLDER_IMAGE}
-                    width={200}
-                    height={200}
-                  />
+                  <div className=''>
+                    <Image
+                      className='object-contain'
+                      alt={article.title}
+                      src={article.urlToImage || process.env.NEXT_PUBLIC_ARTICLE_PLACEHOLDER_IMAGE}
+                      width={200}
+                      height={200}
+                    />
+                  </div>
+
+                  <h3 className={styles.title}>{article.title}</h3>
                 </article>
               </Link>
             );

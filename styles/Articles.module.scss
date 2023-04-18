@@ -1,9 +1,8 @@
 .article {
-  @apply border-2 border-neutral-900 rounded shadow-md hover:shadow-lg;
+  @apply bg-neutral-800 rounded;
   @apply max-w-sm;
-  @apply p-4;
-
-  .title { @apply font-georgia text-base text-center font-bold leading-4;	}
+  
+  .title { @apply text-base text-center font-bold leading-4; }
 }
 
 .main {

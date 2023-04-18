@@ -8,7 +8,8 @@ module.exports = {
     extend: {
       colors: {
         white: '#FFFFFF',
-        black: '#000000',
+        black: '#000001',
+        red: '#FD415F'
       },
       fontFamily: {
         georgia: ['Georgia', 'Times New Roman', 'Times', 'serif'],

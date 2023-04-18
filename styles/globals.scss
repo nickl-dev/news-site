@@ -14,5 +14,7 @@ main { @apply min-h-screen pt-24 px-4; }
 
 @media (prefers-color-scheme: dark) {
   html { color-scheme: dark; }
-  body { @apply bg-neutral-50 text-neutral-900; }
+  body { 
+    @apply text-neutral-50 bg-black;
+  }
 }

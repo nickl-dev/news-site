@@ -4,9 +4,9 @@ import Image from 'next/image'
 export default function Footer() {
   return (
     <>
-      <footer className='flex flex-1 justify-center items-center py-4 border-t-[1px] border-neutral-300'>
+      <footer className='flex flex-1 justify-center items-center py-4 border-neutral-300'>
         <a
-          className='flex justify-center items-center grow'
+          className='flex justify-center items-center grow font-semibold'
           href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
           target='_blank'
           rel='noopener noreferrer'
@@ -14,6 +14,7 @@ export default function Footer() {
           By
           <span className='h-4 ml-2'>
             <Image
+              className='invert'
               src='/assets/images/vercel.svg'
               alt='Vercel Logo'
               width={72}
