@@ -1,7 +1,9 @@
   import Head from 'next/head';
+  import Link from 'next/link';
+  import Image from 'next/image';
 
   const isDevelopmentEnvironment = process.env.NODE_ENV !== 'production'
-  const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : 'https://nickl-dev-simple-news.vercel.app/'
+  const server = isDevelopmentEnvironment ? 'http://localhost:3000/' : process.env.NEXT_PUBLIC_SITE_URL
 
   export const getServerSidePaths = async () => {
     const response = await fetch(`${server}api/articles`);
@@ -45,9 +47,20 @@
         </Head>
 
         {/* Article information */}
-        <main>
-          <h1>{article.title}</h1>
-          <p>{article.description}</p>
+        <main className='pt-24 px-4 sm:px-6 md:px-8 min-h-screen'>
+          <Link className='text-red font-extrabold'href={'/'}>&#8249; Go Back</Link>
+
+          <article className='mt-10'>
+            <h1 className='font-semibold leading-4'>{article.title}</h1>
+            <Image
+              src={article.urlToImage || process.env.NEXT_PUBLIC_ARTICLE_PLACEHOLDER_IMAGE}
+              width={100}
+              height={100}
+              alt={article.description}
+              className='mt-3'
+            />
+            <p className='mt-2'>{article.content || article.description}</p>
+          </article>
         </main>
       </>
     )
